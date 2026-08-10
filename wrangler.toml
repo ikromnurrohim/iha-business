@@ -1,0 +1,5 @@
+name = "sweet-king-4e73"
+compatibility_date = "2026-08-10"
+
+[assets]
+directory = "./public"
