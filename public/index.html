@@ -171,6 +171,7 @@
   .section-head .eyebrow{margin-bottom:10px;}
   .section-head h2{font-size:clamp(26px,3.2vw,34px);}
   .section-head p{color:var(--ink-soft); margin-top:12px; font-size:15.5px;}
+  .section-head .lead-copy{color:var(--forest-ink); font-size:17px; font-weight:500; line-height:1.5;}
 
   /* ---- Tentang ---- */
   .about-grid{display:grid; grid-template-columns:1fr; gap:24px;}
@@ -271,6 +272,19 @@
   .dummy-note{
     margin-top:20px; font-size:12.5px; color:var(--ink-soft); font-style:italic;
   }
+  .coming-soon-box{
+    background:var(--white); border:1.5px dashed var(--green-line);
+    border-radius:var(--radius); padding:40px 28px; text-align:center;
+    display:flex; flex-direction:column; align-items:center; gap:12px;
+  }
+  .coming-soon-tag{
+    display:inline-block; background:var(--green-soft); color:var(--forest-ink);
+    border:1px solid var(--green-line); padding:6px 14px; border-radius:999px;
+    font-size:12.5px; font-weight:600; letter-spacing:0.04em; text-transform:uppercase;
+  }
+  .coming-soon-box h3{font-size:20px; margin-top:4px;}
+  .coming-soon-box p{color:var(--ink-soft); font-size:14.5px; max-width:440px; margin:0;}
+  .coming-soon-box .btn{margin-top:8px;}
 
   /* ---- Testimoni ---- */
   .testi-grid{display:grid; grid-template-columns:1fr; gap:18px;}
@@ -289,9 +303,14 @@
   .map-box{
     background:repeating-linear-gradient(45deg, #EDEAE0 0 14px, #E4E1D6 14px 28px);
     border:1px solid var(--green-line); border-radius:var(--radius);
-    min-height:260px; display:flex; align-items:center; justify-content:center;
-    color:var(--ink-soft); font-family:'IBM Plex Mono'; font-size:13px; text-align:center; padding:20px;
+    aspect-ratio:16/10; max-height:260px; width:100%;
+    display:flex; align-items:center; justify-content:center;
+    color:var(--ink-soft); font-family:'IBM Plex Mono'; font-size:13px; text-align:center; padding:16px;
   }
+  @media(max-width:640px){
+    .map-box{ aspect-ratio:4/3; max-height:180px; font-size:12px; padding:12px; }
+  }
+  .map-box iframe{width:100%; height:100%; border:0; border-radius:calc(var(--radius) - 1px);}
 
   /* ---- Footer ---- */
   footer{background:var(--forest); color:var(--green-soft); padding:36px 0;}
@@ -320,9 +339,9 @@
     <ul class="navlinks">
       <li><a href="#tentang">Tentang</a></li>
       <li><a href="#servis-laptop">Servis Laptop</a></li>
+      <li><a href="#benahi-id">Declutter</a></li>
       <li><a href="#motor-second">Motor Second</a></li>
-      <li><a href="#benahi-id">Benahi.id</a></li>
-      <li><a href="#testimoni">Testimoni</a></li>
+      <li><a href="#testimoni">Ulasan</a></li>
       <li><a href="#kontak">Kontak</a></li>
     </ul>
     <a href="#kontak" class="btn btn-primary navcta">Chat WA</a>
@@ -332,11 +351,12 @@
 <section class="hero">
   <div class="wrap hero-grid">
     <div>
-      <div class="eyebrow">Servis Laptop · Motor Second · Benahi.id</div>
+      <div class="eyebrow">Servis Laptop · Motor Second · Declutter</div>
       <h1>Laptop kelar, motor <em>nemu</em>,<br>rumah rapi juga —<br>tiga-tiganya di sini.</h1>
-      <p>IHA BUSINESS nanganin servis laptop harian lo, jual motor second pilihan, sampai bantu beresin & pilah barang di rumah lewat Benahi.id. Satu tempat, tiga kebutuhan, tinggal chat WA.</p>
+      <p>IHA BUSINESS menangani servis laptop harian kamu, menjual motor second pilihan, sampai membantu membereskan & memilah barang di rumah lewat layanan Declutter. Satu tempat, tiga kebutuhan, tinggal chat WA.</p>
       <div class="hero-actions">
         <a href="#servis-laptop" class="btn btn-primary">Servis Laptop Sekarang</a>
+        <a href="#benahi-id" class="btn btn-outline">Lihat Declutter</a>
         <a href="#motor-second" class="btn btn-outline">Lihat Motor Second</a>
       </div>
     </div>
@@ -344,17 +364,17 @@
       <div class="tag hero-tag">
         <div class="tag-label">Tag · 01 / Laptop</div>
         <div class="tag-title">Cleaning + Repaste</div>
-        <div class="tag-sub">Estimasi 1 jam pengerjaan · antar-jemput 5–10km</div>
+        <div class="tag-sub">Estimasi 1 jam pengerjaan · antar-jemput atau dikerjakan di tempat kamu</div>
       </div>
       <div class="tag hero-tag">
-        <div class="tag-label">Tag · 02 / Motor</div>
+        <div class="tag-label">Tag · 02 / Declutter</div>
+        <div class="tag-title">Ruang Lega, Kepala Plong</div>
+        <div class="tag-sub">Didampingi tim profesional dari konsultasi sampai beres</div>
+      </div>
+      <div class="tag hero-tag">
+        <div class="tag-label">Tag · 03 / Motor</div>
         <div class="tag-title">Unit Second Terpilih</div>
         <div class="tag-sub">Nego jalan · cash / kredit Adira · garansi mesin 1 bulan</div>
-      </div>
-      <div class="tag hero-tag">
-        <div class="tag-label">Tag · 03 / Benahi.id</div>
-        <div class="tag-title">Keep · Donasi · Jual · Buang</div>
-        <div class="tag-sub">Konsultasi dulu · kontrak & fakta integritas sebelum kerja</div>
       </div>
     </div>
   </div>
@@ -363,27 +383,27 @@
 <section id="tentang">
   <div class="wrap">
     <div class="section-head">
-      <div class="eyebrow">Tentang</div>
-      <h2>Satu toko, tiga urusan beres</h2>
-      <p>IHA BUSINESS jalan dari kepercayaan pelanggan lama di servis laptop, sekarang juga bantu carikan motor second yang kondisinya udah dicek dulu, sampai bantu beresin rumah lewat Benahi.id. Belum ada toko fisik yang bisa dikunjungi bebas — semua janjian & transaksi jalan lewat WA dulu.</p>
+      <div class="eyebrow">Work With Love, For Better Life</div>
+      <h2>Partner Profesional untuk Laptop, Motor, &amp; Ruangmu</h2>
+      <p>IHA BUSINESS berangkat dari kepercayaan pelanggan lama di servis laptop, kini juga membantu mencarikan motor second yang kondisinya sudah dicek lebih dulu, hingga membantu membereskan rumah lewat layanan Declutter. Belum ada lokasi fisik yang bisa dikunjungi bebas — semua janji temu & transaksi berjalan lewat WA terlebih dahulu.</p>
     </div>
     <div class="about-grid">
       <div class="about-card">
         <h3>💻 Servis Laptop</h3>
-        <p>Dari pembersihan rutin, ganti komponen, sampai kerusakan hardware — dicek dulu, baru dikerjain. Estimasi waktu jujur, ga digantungin.</p>
+        <p>Dari pembersihan rutin, ganti komponen, sampai kerusakan hardware — dicek dulu, baru dikerjakan. Estimasi waktu jujur, tidak menggantung.</p>
       </div>
       <div class="about-card">
         <h3>🏍️ Motor Second</h3>
         <p>Unit pilihan dengan kondisi & kelengkapan surat yang jelas dari awal. Bisa nego, bisa cash, bisa kredit lewat Adira.</p>
       </div>
       <div class="about-card">
-        <h3>🗂️ Benahi.id</h3>
+        <h3>🗂️ Declutter</h3>
         <p>Bantu pilah barang di rumah, kantor, atau gudang jadi keep, donasi, jual, atau buang — kerja tim di bawah kontrak resmi, aman & rapi.</p>
       </div>
     </div>
     <div class="about-card" style="margin-top:22px;">
       <h3>📍 Lokasi</h3>
-      <p>Area layanan <span class="placeholder">Tangerang Selatan & sekitarnya</span> — lokasi persis dikirim by chat setelah janjian via WA (belum ada toko fisik yang bisa dikunjungi bebas). Servis laptop juga bisa antar-jemput radius 5–10km.</p>
+      <p>Area layanan <span class="placeholder">Tangerang Selatan & sekitarnya</span> — lokasi persis dikirim lewat chat setelah janji temu via WA (belum ada lokasi fisik yang bisa dikunjungi bebas). Servis laptop juga bisa antar-jemput atau dikerjakan di tempat kamu.</p>
     </div>
   </div>
 </section>
@@ -418,7 +438,7 @@
       </div>
       <div class="service-card">
         <h3>Cek & Diagnosa</h3>
-        <p>Konsultasi awal buat tau sumber masalah sebelum lo putusin lanjut servis atau nggak.</p>
+        <p>Konsultasi awal untuk mengetahui sumber masalah sebelum kamu memutuskan lanjut servis atau tidak.</p>
         <span class="price-tag mono">Gratis</span>
       </div>
     </div>
@@ -430,88 +450,18 @@
   </div>
 </section>
 
-<section id="motor-second">
+<section id="benahi-id">
   <div class="wrap">
-    <div class="section-head">
+    <div class="section-head" style="max-width:680px;">
       <div class="eyebrow">Feature 02</div>
-      <h2>Motor Second</h2>
-      <p>Contoh tampilan unit — data & foto di bawah ini dummy, tinggal diganti pas unit asli udah siap.</p>
-    </div>
-    <div class="motor-grid">
-      <div class="motor-card">
-        <div class="motor-photo">Foto Unit 1<br>(6–10 foto per unit)</div>
-        <div class="motor-body">
-          <div class="motor-title">Honda Vario 125</div>
-          <ul class="motor-specs">
-            <li><span>Tahun</span>2019</li>
-            <li><span>KM</span>18.400</li>
-            <li><span>Plat</span>Genap</li>
-            <li><span>Pajak</span>Hidup</li>
-          </ul>
-          <div class="motor-badges">
-            <span class="badge">Nego</span>
-            <span class="badge">Cash/Kredit Adira</span>
-            <span class="badge">Garansi mesin 1 bln</span>
-          </div>
-          <div class="motor-footer">
-            <span class="motor-price">Rp 14.500.000</span>
-            <a href="#kontak" class="wa-mini">Tanya via WA →</a>
-          </div>
-        </div>
+      <h2>Ruangmu isinya barang, bukan ruang untuk bernapas?</h2>
+      <p class="lead-copy">Setiap barang yang ada di sekitarmu diam-diam menyita perhatian. Semakin banyak barang yang kamu temui setiap hari, semakin banyak juga "noise" yang menumpuk di kepala — sebelum sempat memikirkan hal lain, energi kamu sudah lebih dulu terkuras hanya karena melihat barang yang berserakan. Ujungnya, ruang yang harusnya membuat nyaman malah membuat overwhelmed.</p>
+      <p>Kami membantu mengembalikan ruang itu menjadi nyaman lewat konsep minimalism — bukan asal buang, tapi memilah dengan sadar: mana yang masih punya tempat di hidupmu, mana yang hanya numpang lewat. Cakupan: kamar, rumah, kantor, sampai gudang. Kamu tetap berperan penuh dalam proses memilah barangnya.</p>
+      <div class="warranty-strip" style="margin-top:18px;">
+        <span class="pill">😖 Kamar/ruang kerja sesek</span>
+        <span class="pill">🧠 Susah fokus di rumah sendiri</span>
+        <span class="pill">😩 Overwhelmed tiap masuk ruangan</span>
       </div>
-      <div class="motor-card">
-        <div class="motor-photo">Foto Unit 2<br>(6–10 foto per unit)</div>
-        <div class="motor-body">
-          <div class="motor-title">Yamaha NMAX 155</div>
-          <ul class="motor-specs">
-            <li><span>Tahun</span>2021</li>
-            <li><span>KM</span>9.200</li>
-            <li><span>Plat</span>Ganjil</li>
-            <li><span>Pajak</span>Hidup</li>
-          </ul>
-          <div class="motor-badges">
-            <span class="badge">Nego</span>
-            <span class="badge">Cash/Kredit Adira</span>
-            <span class="badge">Garansi mesin 1 bln</span>
-          </div>
-          <div class="motor-footer">
-            <span class="motor-price">Rp 23.800.000</span>
-            <a href="#kontak" class="wa-mini">Tanya via WA →</a>
-          </div>
-        </div>
-      </div>
-      <div class="motor-card">
-        <div class="motor-photo">Foto Unit 3<br>(6–10 foto per unit)</div>
-        <div class="motor-body">
-          <div class="motor-title">Honda Beat Deluxe</div>
-          <ul class="motor-specs">
-            <li><span>Tahun</span>2020</li>
-            <li><span>KM</span>15.100</li>
-            <li><span>Plat</span>Genap</li>
-            <li><span>Pajak</span>Hidup</li>
-          </ul>
-          <div class="motor-badges">
-            <span class="badge">Nego</span>
-            <span class="badge">Cash/Kredit Adira</span>
-            <span class="badge">Garansi mesin 1 bln</span>
-          </div>
-          <div class="motor-footer">
-            <span class="motor-price">Rp 12.900.000</span>
-            <a href="#kontak" class="wa-mini">Tanya via WA →</a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <p class="dummy-note">* Semua data & foto di atas dummy buat contoh tampilan. Ganti dengan unit asli sebelum publish.</p>
-  </div>
-</section>
-
-<section id="benahi-id" class="section-alt">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="eyebrow">Feature 03</div>
-      <h2>Benahi.id — Decluttering &amp; Organizing</h2>
-      <p>Bantu beresin ruang yang penuh barang dengan konsep minimalism. Cakupan: kamar, rumah, kantor, sampai gudang. Client tetap andil di proses milah barangnya.</p>
     </div>
 
     <div class="process-list">
@@ -520,7 +470,7 @@
         <div>
           <h3>Konsultasi Awal</h3>
           <p>Tim survey lokasi & kondisi barang, ngobrolin tujuan client, dikasih estimasi jam kerja & total biaya.</p>
-          <span class="step-tag">Rp — (konsultasi)</span>
+          <span class="step-tag">Gratis</span>
         </div>
       </div>
       <div class="process-step">
@@ -542,7 +492,23 @@
             <span class="sort-badge sort-jual">JUAL</span>
             <span class="sort-badge sort-buang">BUANG</span>
           </div>
-          <span class="step-tag">Rp — / jam / tim</span>
+          <span class="step-tag">Estimasi biaya dari hasil konsultasi</span>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="step-num mono">04</div>
+        <div>
+          <h3>Penataan &amp; Sistem Penyimpanan</h3>
+          <p>Barang yang masuk kategori "Keep" ditata jadi sistem penyimpanan yang gampang dipakai — dikelompokkan per fungsi, ditaruh sesuai seberapa sering kamu pakai (yang harian di jangkauan tangan, yang jarang dipakai naik ke penyimpanan atas/dalam), dan disesuaikan sama alur aktivitas kamu di ruangan itu. Tujuannya biar ruangnya nggak balik berantakan lagi beberapa minggu kemudian.</p>
+          <span class="step-tag">Termasuk, tanpa biaya tambahan</span>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="step-num mono">05</div>
+        <div>
+          <h3>Clearing &amp; Serah Terima</h3>
+          <p>Sebelum tim meninggalkan lokasi, dilakukan pengecekan bersama antara team leader dan kamu — memastikan tidak ada barang yang hilang atau rusak selama proses berlangsung.</p>
+          <span class="step-tag">Termasuk, tanpa biaya tambahan</span>
         </div>
       </div>
       <div class="process-step">
@@ -576,28 +542,43 @@
   </div>
 </section>
 
+<section id="motor-second" class="section-alt">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Feature 03</div>
+      <h2>Motor Second</h2>
+      <p>Unit lagi disiapin — cek kondisi, kelengkapan surat, sampai foto tiap unit, biar begitu tayang datanya udah lengkap & bisa dipercaya.</p>
+    </div>
+    <div class="coming-soon-box">
+      <div class="coming-soon-tag mono">Segera Hadir</div>
+      <h3>Unit motor second lagi dikurasi</h3>
+      <p>Mau tanya-tanya dulu soal unit yang kamu cari? Chat WA saja, begitu unit siap kamu akan diinfokan lebih dulu.</p>
+      <a href="#kontak" class="btn btn-primary">Tanya via WA</a>
+    </div>
+  </div>
+</section>
+
 <section id="testimoni">
   <div class="wrap">
     <div class="section-head">
-      <div class="eyebrow">Testimoni</div>
+      <div class="eyebrow">Cerita Pelanggan</div>
       <h2>Kata pelanggan</h2>
-      <p>Contoh testimoni dummy — ganti dengan testimoni asli pelanggan nanti.</p>
     </div>
     <div class="testi-grid">
       <div class="testi-card">
         <p class="testi-quote">"Laptop kerja saya lemot banget, dibersihin & ganti pasta langsung enteng lagi. Sejam doang beres."</p>
-        <div class="testi-name">Dummy Testimoni 1</div>
+        <div class="testi-name">Tama</div>
         <div class="testi-role">Pelanggan Servis Laptop</div>
       </div>
       <div class="testi-card">
         <p class="testi-quote">"Motornya sesuai deskripsi, surat lengkap, nego juga enak. Proses kredit di Adira dibantuin sampai selesai."</p>
-        <div class="testi-name">Dummy Testimoni 2</div>
+        <div class="testi-name">Yuri</div>
         <div class="testi-role">Pembeli Motor Second</div>
       </div>
       <div class="testi-card">
         <p class="testi-quote">"Kamar gudang di rumah akhirnya rapi. Prosesnya jelas, ada kontrak juga jadi tenang, barang yang dijual malah balik modal buat servis lain."</p>
-        <div class="testi-name">Dummy Testimoni 3</div>
-        <div class="testi-role">Klien Benahi.id</div>
+        <div class="testi-name">Berlin</div>
+        <div class="testi-role">Klien Declutter</div>
       </div>
     </div>
   </div>
@@ -616,7 +597,6 @@
         <li><span class="k mono">Instagram</span><span class="placeholder">@ihabusiness</span></li>
         <li><span class="k mono">Email</span><span class="placeholder">ikromnurrohim16@gmail.com</span></li>
         <li><span class="k mono">Alamat</span><span class="placeholder">Kost Arkan, Jl. Wijaya Kusuma Raya, Jurang Mangu Barat, Kec. Pd. Aren, Kota Tangerang Selatan, Banten 15223</span></li>
-        <li><span class="k mono">Jam Buka</span><span class="placeholder">24x7 setiap hari</span></li>
       </ul>
       <div class="map-box">
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.023525579709!2d106.7293122!3d-6.2606313!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f1cbe7773de7%3A0x5943414038af8375!2sKost%20Arkan!5e0!3m2!1sen!2sid!4v1786437348956!5m2!1sen!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
@@ -628,12 +608,12 @@
 <footer>
   <div class="wrap">
     <div class="brand"><span class="brand-dot" style="background:#7FD99A;"></span>IHA BUSINESS</div>
-    <p>Servis Laptop · Motor Second · Benahi.id — Tangerang Selatan &amp; sekitarnya.</p>
+    <p>Servis Laptop · Motor Second · Declutter — Tangerang Selatan &amp; sekitarnya.</p>
     <p>© 2026 IHA BUSINESS. Semua hak dilindungi.</p>
   </div>
 </footer>
 
-<a href="#kontak" class="fab-wa" aria-label="Chat via WhatsApp">
+<a href="https://wa.me/6285759728491" target="_blank" rel="noopener" class="fab-wa" aria-label="Chat via WhatsApp">
   <span class="fab-dot"></span> Chat WA
 </a>
 
